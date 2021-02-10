@@ -22,7 +22,7 @@ Basic Calendar *Input*:
 - *iconPath*
 - *Output function*
 
--Events is an array of objects that contain at a minimum: unique field 'id' and 'scheduled_Date' in for "year-month-day". 
+-Events is an array of objects that contain at a minimum: unique field 'id' and 'scheduled_Date' in format "yyyy-mm-dd". 
 
 -Title is also required and an optional 'iconPath' which is a link or path to an image displayed in the top right.
 

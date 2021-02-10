@@ -1,0 +1,121 @@
+.calendar-card {
+    width: 550px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    margin-top: 5%;
+}
+
+.calendar-title{
+      color: rgb(255, 201, 71);
+}
+
+.column {
+    float: right !important;
+    display:flex;
+    flex-direction:column;
+}
+
+.column-2 {
+    display:flex;
+    flex-direction:column;
+}
+.mat-card-cvr{
+    width: 100%;
+    text-align:center;
+ }
+ .calendar-tile {
+    border: solid 1px #000;
+    background-color: whitesmoke;
+    color: black;
+    transition: background-color 0.5s ease;
+}
+.calendar-tile:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.arrow {
+    font-size: 16pt;
+}
+.calendar-day {
+    position: absolute;
+    left: 0px !important;
+    top: 0px !important;
+    display: block !important;
+    background-color: whitesmoke;
+    color: black;
+}
+.curr-day {
+    background-color: rgb(40, 40, 128);
+    color: whitesmoke;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.selected-day {
+    border: solid 1px orangered;
+}
+.link { cursor: pointer; }
+.link:hover{
+    background-color: rgb(45, 95, 160);
+}
+#left{float:left;}
+#right{float:right;}
+.slideAnim {
+    animation-name: slide;
+    animation-duration: 2s;
+  }
+@media (max-width: 600px){
+    .calendar-card {
+        width: 370px;
+        align-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        color: whitesmoke;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+        margin-top: 5%;
+    }
+    .spacer {
+        display: none;
+    }
+
+    #right {
+        float: left;
+    }
+    #left {
+        display: none;
+    }
+
+    .link {
+        color: rgb(255, 201, 71) !important;
+    }
+}
+@media (max-width: 400px){
+    .calendar-card {
+        width: 350px;
+        align-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        color: whitesmoke;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+        margin-top: 5%;
+        padding: 10px;
+    }
+    .spacer {
+        display: none;
+    }
+
+    #right {
+        float: left;
+    }
+    #left {
+        display: none;
+    }
+    .mat-toolbar-multiple-rows {
+        width: 80% !important;
+    }
+}

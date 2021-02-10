@@ -1,6 +1,6 @@
 {
   "name": "basic-calendar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Jordan Vaughn",
   "description": "A basic customizable Angular calendar that can display events",
@@ -9,6 +9,10 @@
     "Angular",
     "Angular calendar"
   ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/jordvaug/Basic-Calendar"
+  },
   "peerDependencies": {
     "@angular/common": "~9.0",
     "@angular/compiler-cli": "~9.0",

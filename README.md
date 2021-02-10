@@ -27,7 +27,7 @@ Basic Calendar *Input*:
 -Title is also required and an optional 'iconPath' which is a link or path to an image displayed in the top right.
 
 Basic Calendar *Output*:
-id's using an event emitter when a day containing events is clicked. 
+- id's using an event emitter when a day containing events is clicked. 
 
 *This can be used to route to a page or popup a dialog containing those events on the parent.*
 

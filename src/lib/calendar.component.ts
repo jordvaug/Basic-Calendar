@@ -17,62 +17,57 @@ const listAnimation = trigger('listAnimation', [
 @Component({
   selector: 'basic-calendar',
   template: `
-  <mat-card style="width: 100%;align-content: center;margin-left: auto; margin-right: auto;
-  color: whitesmoke; background-color: rgba(0, 0, 0, 0.5);box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  margin-top: 5%;">
-  <div class="container">
-      <mat-card-title style="color: rgb(255, 201, 71);float:left;">{{title}}</mat-card-title>
-      <img *ngIf="iconPath !== ''" style="float: right;width: 15%; height: 75%" src="{{iconPath}}"/>
-  </div>
-  <mat-card-content> 
-      <br />
-      <br />
-      <br />
-      <mat-grid-list cols="3" rowHeight="50px">
-          <mat-grid-tile>
-              <div style="vertical-align: bottom; right:0px;display:flex;flex-direction:column;cursor: pointer;font-size: 16pt;" class="link" (click)="leftMonth()"><</div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-              <h3 style="display:flex;flex-direction:column;">{{currMonth}} {{year}}</h3> 
-          </mat-grid-tile>
-          <mat-grid-tile>
-              <div style="vertical-align: bottom; left: 0px !important;display:flex;flex-direction:column;cursor: pointer;font-size: 16pt;" class="link" (click)="rightMonth()">></div>
-          </mat-grid-tile>
-      </mat-grid-list>
-
-      <mat-grid-list cols = "7" rowHeight = "75px">
-          <mat-grid-tile>S</mat-grid-tile>
-          <mat-grid-tile>M</mat-grid-tile>
-          <mat-grid-tile>T</mat-grid-tile>
-          <mat-grid-tile>W</mat-grid-tile>
-          <mat-grid-tile>T</mat-grid-tile>
-          <mat-grid-tile>F</mat-grid-tile>
-          <mat-grid-tile>S</mat-grid-tile>
-          <div [@listAnimation]="month">
-              <mat-grid-tile style="border: solid 1px #000;background-color: whitesmoke;color: black;"
-              *ngFor="let in of counter(grids);let i = index"
-              (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
-                  <div style="position: absolute;left: 0px !important;
-                  top: 0px !important;display: block !important;
-                  background-color: whitesmoke;color: black;" *ngIf="i < firstDay; else regdays"></div>
-                  <ng-template #regdays>
-                      <div style="background-color: rgb(40, 40, 128);color: whitesmoke;
-                      position: absolute;left: 0px;top: 0px;" *ngIf="i-firstDay+1 === currDay">{{i-firstDay+1}}</div>
-                      <div style="position: absolute;left: 0px !important;
-                      top: 0px !important;display: block !important;
-                      background-color: whitesmoke;color: black;" *ngIf="i-firstDay+1 !== currDay">{{i-firstDay+1}}</div>
-                  </ng-template>
-                  <div *ngIf=" eventDays !== undefined && i-firstDay > 0 && eventDays[i-firstDay]">
-                      <mat-icon class="icons link" aria-hidden="false" onmouseover="" (click)="selectedDay(i-firstDay+1)">event</mat-icon>
-                  </div>
+<div class="basic-calendar">
+  <mat-card class="calendar-card">
+      <div class="container">
+          <mat-card-title id="left" class="calendar-title">{{title}}</mat-card-title>
+          <img id="right" style="width: 15%; height: 75%" src="{{iconPath}}" />
+      </div>
+      <mat-card-content> 
+          <br />
+          <br />
+          <br />
+          <mat-grid-list cols="3" rowHeight="50px">
+              <mat-grid-tile>
+                  <div style="vertical-align: bottom; right:0px;" class="column-2 link" (click)="leftMonth()"><</div>
               </mat-grid-tile>
-          </div>
-      </mat-grid-list>
-  </mat-card-content>
-</mat-card>
+              <mat-grid-tile>
+                  <h3 class="column-2">{{currMonth}} {{year}}</h3> 
+              </mat-grid-tile>
+              <mat-grid-tile>
+                  <div style="vertical-align: bottom; left: 0px !important;" class="column-2 link" (click)="rightMonth()">></div>
+              </mat-grid-tile>
+          </mat-grid-list>
+
+          <mat-grid-list cols = "7" rowHeight = "75px" id="calendar-box">
+              <mat-grid-tile>S</mat-grid-tile>
+              <mat-grid-tile>M</mat-grid-tile>
+              <mat-grid-tile>T</mat-grid-tile>
+              <mat-grid-tile>W</mat-grid-tile>
+              <mat-grid-tile>T</mat-grid-tile>
+              <mat-grid-tile>F</mat-grid-tile>
+              <mat-grid-tile>S</mat-grid-tile>
+              <div [@listAnimation]="month">
+                  <mat-grid-tile class="calendar-tile"
+                  *ngFor="let in of counter(grids);let i = index"
+                  (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
+                      <div class="calendar-day" *ngIf="i < firstDay; else regdays"></div>
+                      <ng-template #regdays>
+                          <div class="curr-day" *ngIf="i-firstDay+1 === currDay">{{i-firstDay+1}}</div>
+                          <div class="calendar-day" *ngIf="i-firstDay+1 !== currDay">{{i-firstDay+1}}</div>
+                      </ng-template>
+                      <div *ngIf=" eventDays !== undefined && i-firstDay > 0 && eventDays[i-firstDay]">
+                          <mat-icon class="icons link" aria-hidden="false" onmouseover="" (click)="selectedDay(i-firstDay+1)">event</mat-icon>
+                      </div>
+                  </mat-grid-tile>
+              </div>
+          </mat-grid-list>
+      </mat-card-content>
+  </mat-card>
+</div>
   `,
   animations: [listAnimation],
-  styles: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css']
 })
 export class BasicCalendar implements OnInit {
 

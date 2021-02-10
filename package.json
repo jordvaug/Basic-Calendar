@@ -1,6 +1,6 @@
 {
   "name": "basic-calendar",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "license": "MIT",
   "author": "Jordan Vaughn",
   "description": "A basic customizable Angular calendar that can display events",

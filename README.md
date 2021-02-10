@@ -17,10 +17,10 @@ You should include google API's mat icon link in your index.html
 
 Basic Calendar *Input*:
 
-*events* (Array)
-*title*
-*iconPath*
-*Output function*
+-*events* (Array)
+-*title*
+-*iconPath*
+-*Output function*
 
 -Events is an array of objects that contain at a minimum: unique field 'id' and 'scheduled_Date' in for "year-month-day". 
 
